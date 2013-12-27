@@ -7,31 +7,33 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class ImageAdapter extends BaseAdapter{
 
-    private final Bitmap[] values;
+    private final List<Bitmap> values;
     //private final int[] values = new int[] {10,9,8,7,6,5,4,3,2,1};
 
-    public ImageAdapter(Bitmap[] data){
+    public ImageAdapter(List<Bitmap> data){
         values = data;
     }
 
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return values.length;
+        return values.size();
     }
 
     @Override
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return values[position];
+        return values.get(position);
     }
 
     @Override
     public long getItemId(int position) {
         // TODO Auto-generated method stub
-        return values[position].hashCode();
+        return values.get(position).hashCode();
     }
 
     @Override
@@ -43,7 +45,7 @@ public class ImageAdapter extends BaseAdapter{
             convertView.setPadding(6,6,6,6);
         }
         //((TextView) convertView).setText(Integer.toString(values[position]));
-        ((ImageView) convertView).setImageBitmap(values[position]);
+        ((ImageView) convertView).setImageBitmap(values.get(position));
         return convertView;
     }
 
